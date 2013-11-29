@@ -6,6 +6,31 @@
 
 	<source path='client' />
 	
-	<entry-point class="com.vaadin.pointerevents.client.PointerEventInitializer"/>
+	<define-property name="modernie" values="none,yes" />
+	<property-provider name="modernie"><![CDATA[
+	  {
+	    var ua = $wnd.navigator.userAgent;
+	    if (ua.indexOf('IE') == -1 && ua.indexOf('Trident') != -1) { return 'yes'; }
+	    return 'none';
+	  }
+	]]></property-provider>
 
+	<set-property name="modernie" value="none">
+		<none>
+			<when-property-is name="user.agent" value="gecko1_8" />
+		</none>
+	</set-property>
+	
+
+	<replace-with class="com.vaadin.pointerevents.client.ModernSupportImpl">
+		<when-type-is class="com.vaadin.pointerevents.client.PointerEventsSupport"/>
+		<when-property-is value="yes" name="modernie"/>
+	</replace-with>
+	
+	<replace-with class="com.vaadin.pointerevents.client.PrefixedSupportImpl">
+		<when-type-is class="ccom.vaadin.pointerevents.client.PointerEventsSupport"/>
+		<when-property-is value="ie10" name="user.agent"/>
+	</replace-with>
+
+	<entry-point class="com.vaadin.pointerevents.client.PointerEventInitializer"/>
 </module>

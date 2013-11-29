@@ -18,23 +18,23 @@ package com.vaadin.pointerevents.client;
 import com.google.gwt.event.dom.client.DomEvent;
 
 /**
- * Represents a native MsPointerDownEvent.
+ * Represents a native PointerDownEvent.
  */
-public class MsPointerDownEvent extends MsPointerEvent<MsPointerDownHandler> {
+public class PointerDownEvent extends PointerEvent<PointerDownHandler> {
 
   /**
-   * Event type for MsPointerDownEvent. Represents the meta-data associated with
+   * Event type for PointerDownEvent. Represents the meta-data associated with
    * this event.
    */
-  private static final Type<MsPointerDownHandler> TYPE = new Type<MsPointerDownHandler>(
-      Events.MSPointerDown.toString(), new MsPointerDownEvent());
+  private static final Type<PointerDownHandler> TYPE = new Type<PointerDownHandler>(
+      Events.PointerDown.eventName(), new PointerDownEvent());
 
   /**
-   * Gets the event type associated with MsPointerDownEvent events.
+   * Gets the event type associated with PointerDownEvent events.
    *
    * @return the handler type
    */
-  public static Type<MsPointerDownHandler> getType() {
+  public static Type<PointerDownHandler> getType() {
     return TYPE;
   }
 
@@ -43,16 +43,16 @@ public class MsPointerDownEvent extends MsPointerEvent<MsPointerDownHandler> {
    * {@link DomEvent#fireNativeEvent(com.google.gwt.dom.client.NativeEvent, com.google.gwt.event.shared.HasHandlers)}
    * to fire pointer down events.
    */
-  protected MsPointerDownEvent() {
+  protected PointerDownEvent() {
   }
 
   @Override
-  public final Type<MsPointerDownHandler> getAssociatedType() {
+  public final Type<PointerDownHandler> getAssociatedType() {
     return TYPE;
   }
 
   @Override
-  protected void dispatch(MsPointerDownHandler handler) {
+  protected void dispatch(PointerDownHandler handler) {
     handler.onPointerDown(this);
   }
 

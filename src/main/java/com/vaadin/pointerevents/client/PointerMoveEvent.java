@@ -18,23 +18,23 @@ package com.vaadin.pointerevents.client;
 import com.google.gwt.event.dom.client.DomEvent;
 
 /**
- * Represents a native MsPointerMoveEvent event.
+ * Represents a native PointerMoveEvent event.
  */
-public class MsPointerMoveEvent extends MsPointerEvent<MsPointerMoveHandler> {
+public class PointerMoveEvent extends PointerEvent<PointerMoveHandler> {
 
   /**
-   * Event type for MsPointerMoveEvent. Represents the meta-data associated with
+   * Event type for PointerMoveEvent. Represents the meta-data associated with
    * this event.
    */
-  private static final Type<MsPointerMoveHandler> TYPE = new Type<MsPointerMoveHandler>(
-      Events.MSPointerMove.toString(), new MsPointerMoveEvent());
+  private static final Type<PointerMoveHandler> TYPE = new Type<PointerMoveHandler>(
+      Events.PointerMove.eventName(), new PointerMoveEvent());
 
   /**
-   * Gets the event type associated with MsPointerMoveEvent.
+   * Gets the event type associated with PointerMoveEvent.
    *
    * @return the handler type
    */
-  public static Type<MsPointerMoveHandler> getType() {
+  public static Type<PointerMoveHandler> getType() {
     return TYPE;
   }
 
@@ -43,16 +43,16 @@ public class MsPointerMoveEvent extends MsPointerEvent<MsPointerMoveHandler> {
    * {@link DomEvent#fireNativeEvent(com.google.gwt.dom.client.NativeEvent, com.google.gwt.event.shared.HasHandlers)}
    * to fire pointer down events.
    */
-  protected MsPointerMoveEvent() {
+  protected PointerMoveEvent() {
   }
 
   @Override
-  public final Type<MsPointerMoveHandler> getAssociatedType() {
+  public final Type<PointerMoveHandler> getAssociatedType() {
     return TYPE;
   }
 
   @Override
-  protected void dispatch(MsPointerMoveHandler handler) {
+  protected void dispatch(PointerMoveHandler handler) {
     handler.onPointerMove(this);
   }
 

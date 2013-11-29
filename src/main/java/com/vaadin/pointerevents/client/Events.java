@@ -1,7 +1,12 @@
 package com.vaadin.pointerevents.client;
 
-public enum Events {
 
-    MSPointerDown, MSPointerMove, MSPointerOut, MSPointerOver, MSPointerUp, MsPointerCancel
+enum Events {
+
+    PointerDown, PointerMove, PointerOut, PointerOver, PointerUp, PointerCancel;
+
+    public String eventName() {
+        return PointerEventsSupport.impl.prefix(this.toString());
+    }
 
 }

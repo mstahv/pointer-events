@@ -18,14 +18,14 @@ package com.vaadin.pointerevents.client;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
- * Handler interface for {@link MsPointerCancelEvent} events.
+ * Handler interface for {@link PointerDownEvent} events.
  */
-public interface MsPointerCancelHandler extends EventHandler {
+public interface PointerDownHandler extends EventHandler {
 
   /**
-   * Called when MsPointerCancelEvent is fired.
+   * Called when PointerDownEvent is fired.
    *
-   * @param event the {@link MsPointerCancelEvent} that was fired
+   * @param event the {@link PointerDownEvent} that was fired
    */
-  void onPointerCancel(MsPointerCancelEvent event);
+  void onPointerDown(PointerDownEvent event);
 }

@@ -17,12 +17,12 @@ import com.google.gwt.event.dom.client.MouseEvent;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
- * Abstract class representing MsPointer events.
+ * Abstract class representing Pointer events.
  *
  * @param <H> handler type
  *
  */
-public abstract class MsPointerEvent<H extends EventHandler> extends MouseEvent<H> {
+public abstract class PointerEvent<H extends EventHandler> extends MouseEvent<H> {
 
   public final native int getPointerId() /*-{
     var e = this.@com.google.gwt.event.dom.client.DomEvent::nativeEvent;
