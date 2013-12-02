@@ -24,11 +24,13 @@
 
 	<replace-with class="com.vaadin.pointerevents.client.ModernSupportImpl">
 		<when-type-is class="com.vaadin.pointerevents.client.PointerEventsSupport"/>
-		<when-property-is value="yes" name="modernie"/>
+		<none>
+			<when-property-is value="none" name="modernie"/>
+		</none>
 	</replace-with>
 	
 	<replace-with class="com.vaadin.pointerevents.client.PrefixedSupportImpl">
-		<when-type-is class="ccom.vaadin.pointerevents.client.PointerEventsSupport"/>
+		<when-type-is class="com.vaadin.pointerevents.client.PointerEventsSupport"/>
 		<when-property-is value="ie10" name="user.agent"/>
 	</replace-with>
 

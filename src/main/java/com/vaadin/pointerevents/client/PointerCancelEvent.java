@@ -12,7 +12,7 @@ public class PointerCancelEvent extends PointerEvent<PointerCancelHandler> {
    * this event.
    */
   private static final Type<PointerCancelHandler> TYPE = new Type<PointerCancelHandler>(
-      Events.PointerCancel.eventName(), new PointerCancelEvent());
+      Events.PointerCancel.getNativeEventName(), new PointerCancelEvent());
 
   /**
    * Gets the event type associated with pointer cancel events.

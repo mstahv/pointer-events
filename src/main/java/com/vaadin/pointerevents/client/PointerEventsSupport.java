@@ -10,8 +10,8 @@ public class PointerEventsSupport {
     public PointerEventsSupport() {
     }
 
-    public String prefix(String javaname) {
-        return javaname.toLowerCase();
+    public String getNativeEventName(Events events) {
+        return events.toString().toLowerCase();
     }
 
     public static boolean isSupported() {

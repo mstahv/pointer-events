@@ -12,7 +12,7 @@ public class PointerUpEvent extends PointerEvent<PointerUpHandler> {
    * this event.
    */
   private static final Type<PointerUpHandler> TYPE = new Type<PointerUpHandler>(
-      Events.PointerUp.eventName(), new PointerUpEvent());
+      Events.PointerUp.getNativeEventName(), new PointerUpEvent());
 
   /**
    * Gets the event type associated with PointerUpEvent.

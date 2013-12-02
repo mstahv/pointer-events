@@ -5,8 +5,8 @@ enum Events {
 
     PointerDown, PointerMove, PointerOut, PointerOver, PointerUp, PointerCancel;
 
-    public String eventName() {
-        return PointerEventsSupport.impl.prefix(this.toString());
+    String getNativeEventName() {
+        return PointerEventsSupport.impl.getNativeEventName(this);
     }
 
 }

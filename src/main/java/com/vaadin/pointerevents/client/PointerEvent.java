@@ -13,6 +13,7 @@
  */
 package com.vaadin.pointerevents.client;
 
+import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseEvent;
 import com.google.gwt.event.shared.EventHandler;
 
@@ -24,8 +25,12 @@ import com.google.gwt.event.shared.EventHandler;
  */
 public abstract class PointerEvent<H extends EventHandler> extends MouseEvent<H> {
 
-  public final native int getPointerId() /*-{
-    var e = this.@com.google.gwt.event.dom.client.DomEvent::nativeEvent;
+  public final int getPointerId() {
+      return getPointerId(getNativeEvent());
+  };
+  
+  private static native final int getPointerId(NativeEvent e) 
+  /*-{
     return e.pointerId;
   }-*/;
 
