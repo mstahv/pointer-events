@@ -19,6 +19,8 @@ import com.google.gwt.core.client.GWT;
 
 public class PointerEventsSupport {
 
+    public static boolean initDone = false;
+
     static final PointerEventsSupport impl = GWT
             .create(PointerEventsSupport.class);
 
@@ -36,9 +38,18 @@ public class PointerEventsSupport {
     boolean supports() {
         return false;
     }
-    
+
+    /**
+     * Initializes pointer event support. Most commonly this should not be
+     * needed if the entry point of this module gets executed early enough. If
+     * there are ordering issues in more complex GWT projects, this method can
+     * be called to ensure pointer events setup in earlier phase.
+     */
     public static void init() {
-        impl.doInit();
+        if (!initDone) {
+            impl.doInit();
+            initDone = true;
+        }
     }
 
     void doInit() {
